@@ -1,19 +1,25 @@
-import fastify, { FastifyReply } from 'fastify'
-import { logProduct } from './utils/getProduct';
+import { runServer } from './server';
+import { dbIndex } from './db/dbIndex';
+require('dotenv').config({ path: './.env' }) //Do not forget
 
 
-const server = fastify()
+const index = async () => {
+    try {
+        //Invoke Db connect then start server
+        await dbIndex().then(async () => {
+            await runServer();
+        })
 
-server.get('/ping', async () => {
-    const data = await logProduct();
 
-    return (data);
-})
 
-server.listen({ port: 8080 }, (err, address) => {
-    if (err) {
-        console.error(err)
-        process.exit(1)
+    } catch (error) {
+        console.log("Unable to start Server");
     }
-    console.log(`Server listening at ${address}`)
-})
+}
+
+
+
+index();
+
+
+
