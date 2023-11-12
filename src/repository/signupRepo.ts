@@ -5,8 +5,10 @@ import { generateHash } from "../utils/generateHash";
 
 export const signupRepo = async (data: signupInterface): Promise<signupReturnInterface> => {
     try {
+        //user exist or no
         const exists = await User.findOne({ email: data.email });
         if (exists === null) {
+            //generate hash password
             const hashPassword = generateHash(data.password);
             if (hashPassword === null) {
                 return {
@@ -15,7 +17,7 @@ export const signupRepo = async (data: signupInterface): Promise<signupReturnInt
                 }
             }
             else {
-
+                //use User model to create new model and save
                 const newUser = new User({
                     email: data.email,
                     password: hashPassword,

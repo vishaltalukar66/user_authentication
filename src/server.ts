@@ -2,6 +2,7 @@ import fastify, { FastifyReply, FastifyRequest } from 'fastify'
 import cors from '@fastify/cors'
 import cookie, { FastifyCookieOptions } from '@fastify/cookie'
 import { authRoutes } from './routes/authRoutes'
+import fastifySecureSession from '@fastify/secure-session'
 
 export const runServer = async () => {
     const server = fastify();
@@ -31,6 +32,19 @@ export const runServer = async () => {
         secret: "my-secret", // for cookies signature
         parseOptions: {}     // options for parsing cookies
     } as FastifyCookieOptions)
+
+
+    server.register(fastifySecureSession, {
+        // the name of the attribute decorated on the request-object, defaults to 'session'
+        sessionName: 'session',
+        secret: 'qazscdxvtgrfbhchuyghtclokmnjohbon',
+        salt: 'c4e87987dbcewesc',
+        cookie: {
+            path: '/',
+            httpOnly: true // Use httpOnly for all production purposes
+        }
+    }
+    )
 
     server.listen({ port: 8080 || 3000 }, (err, address) => {
         if (err) {

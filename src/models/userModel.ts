@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
             minlength: [8, 'Minimun password length must be 8 characters long']
 
         },
-        refreshToken: {
+        token: {
             type: String
         }
     },

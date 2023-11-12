@@ -5,10 +5,15 @@ import { validate } from "email-validator";
 
 export const signupHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     try {
+        //extract data from request body
         const data = request.body as signupInterface;
+        //if valid email then proceed 
         if (validate(data.email)) {
+            //comfirm password
             if (data.password === data.cpassword) {
                 const response = await signupServices(data)
+                //if success is true 200 statuscode else 400 status code
+
                 const statusFromService = response.success ? 200 : 400
                 reply.send(response).status(statusFromService);
             }

@@ -1,4 +1,5 @@
 export const signupSchema = {
+    description: 'Sign up endpoint, handles the registration or signup process for new users. This endpoint typically receives user-provided information, such as a username, email, full name, password and confirm password and creates a new user account in the system.',
     body: {
         type: 'object',
         properties: {
