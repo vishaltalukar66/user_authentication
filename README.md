@@ -1,42 +1,42 @@
+# User Authentication
 
-# Fastify + TypeScript template
+A robust User Authentication Portal crafted with the power of Fastify, Node.js, MongoDB, and TypeScript. 🌐✨
 
-Getting started with Fastify & Typescript with nodemon for restarting the node application when file changes in the directory are detected.
+## 🛠️ Key Features
 
+- **Fastify & TypeScript Combo:** Leveraging the speed of Fastify and the robustness of TypeScript for efficient and type-safe development.
 
-# What is Fastify
+- **Swagger UI Integration:** 🌐✨ Witness the magic of Swagger UI, understanding and testing API endpoints is an interactive and seamless experience.
 
-Fastify is a web framework highly focused on providing the best developer experience with the least overhead and a powerful plugin architecture. It is inspired by Hapi and Express and as far as we know, it is one of the fastest web frameworks in town
+- **Clear API Documentation:** Thanks to Swagger UI, every API endpoint is well documented. Developers can effortlessly understand and interact with the authentication API.
 
+## Demo
 
+**Link** : https://user-authentication-pied.vercel.app/
 
+⚠ Some feature might work on the browser, please hit the url using Postman.
 
+## 📋 Usage
 
+*Clone the repository*
 
-
-## Run the Project template
-
-Clone the project
+   ```bash
+   git clone https://github.com/vishaltalukar66/user_authentication
+   ```
+*Go to the project directory*
 
 ```bash
-  git clone https://github.com/vishaltalukar66/fastify_typescript_template
+  cd user_authentication
 ```
 
-Go to the project directory
-
-```bash
-  cd fastify_typescript_template
-```
-
-Install dependencies
+*Install dependencies*
 
 ```bash
   npm install
 ```
 
-### Run Locally at 127.0.0.1:8080
+*Start the App*
 
 ```bash
   npm run dev
 ```
-
